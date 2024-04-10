@@ -8,10 +8,9 @@ gap: 20px;
 /* Individual blog card */
 .blog-card {
 width: calc(50% - 10px); /* 50% width with 10px gap between columns */
-background-color: #FFFFFF;
+background-color: #FFF;
 border-radius: 8px;
 overflow: hidden;
-/*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
 }
 
 /* Blog card image */
