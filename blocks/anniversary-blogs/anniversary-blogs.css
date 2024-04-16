@@ -118,18 +118,3 @@
     background-color: #007bff;
     color: white;
   }
-
-  /* Media Query for Tablets and larger screens */
-@media screen and (min-width: 479px) {
-    .blog-card-content {
-      width: 60%;
-      padding: 20px;
-    }
-  }
-  
-  /* Media Query for Smaller screens */
-  @media screen and (max-width: 1024px) {
-    .blog-card picture {
-      border-radius: 0 0 0 0;
-    }
-  }

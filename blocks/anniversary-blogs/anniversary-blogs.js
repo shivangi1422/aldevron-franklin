@@ -100,13 +100,13 @@ export default async function decorate(block) {
 
     if (shouldShowPagination) {
       const totalResults = sortedResults.length;
-      const totalPages = Math.ceil(totalResults / 6);
+      const totalPages = Math.ceil(totalResults / 10);
       const pagination = div({ class: 'pagination' });
-      for (let i = 1; i <= totalPages; i++) {
+      for (let i = 1; i <= totalPages; i += 1) {
         const pageLink = a({ href: '#', class: 'page-link', 'data-page': i }, i);
         pageLink.addEventListener('click', (event) => {
           event.preventDefault();
-          const selectedPage = parseInt(event.target.dataset.page);
+          const selectedPage = parseInt(event.target.dataset.page, 10);
           const newResults = createAnniversaryBlogs(sortedResults, selectedPage);
           blogsContainer.innerHTML = '';
           blogsContainer.appendChild(newResults);
