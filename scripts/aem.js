@@ -837,6 +837,134 @@ async function loadFooter(footer) {
   return loadBlock(footerBlock);
 }
 
+const payload = {
+  analytics: {
+    clientId: '87f2e820-f08c-48c8-bf0a-de04825619f9',
+    clientTimestamp: '2024-03-04T16:51:01.720Z',
+    documentLocation: 'https://www.aldevron.com/',
+    documentReferrer: '',
+    originContext: 'Search',
+  },
+  locale: 'en',
+  pipeline: 'Aldevron Marketplace',
+  q: '',
+  searchHub: 'AldevronMainSearch',
+  timezone: 'America/New_York',
+  visitorId: '87f2e820-f08c-48c8-bf0a-de04825619f9',
+  actionsHistory: [
+    {
+      time: '"2024-03-04T15:48:09.863Z"',
+      name: 'Query',
+    },
+    {
+      time: '"2024-03-04T15:45:25.428Z"',
+      name: 'Query',
+    },
+    {
+      time: '"2024-03-04T15:42:36.513Z"',
+      name: 'Query',
+    },
+    {
+      time: '"2024-03-04T15:41:15.301Z"',
+      name: 'Query',
+    },
+    {
+      time: '"2024-03-04T15:35:14.401Z"',
+      name: 'Query',
+    },
+    {
+      time: '"2024-03-04T15:34:12.218Z"',
+      name: 'Query',
+    },
+    {
+      time: '"2024-03-04T15:30:34.952Z"',
+      name: 'Query',
+    },
+    {
+      time: '"2024-03-04T15:27:39.498Z"',
+      name: 'Query',
+    },
+    {
+      time: '"2024-03-04T15:20:15.581Z"',
+      name: 'Query',
+    },
+    {
+      time: '"2024-03-04T15:19:11.732Z"',
+      name: 'Query',
+    },
+    {
+      time: '"2024-02-29T15:42:32.198Z"',
+      name: 'Query',
+    },
+    {
+      time: '2024-02-29T15:42:31.474Z',
+      value: '/content/danaher/ls/us/en/search',
+      name: 'PageView',
+    },
+    {
+      time: '"2024-02-29T15:42:06.107Z"',
+      name: 'Query',
+    },
+    {
+      time: '2024-02-29T15:42:05.285Z',
+      value: '/content/danaher/ls/us/en/search',
+      name: 'PageView',
+    },
+    {
+      time: '"2024-02-29T14:49:36.583Z"',
+      name: 'Query',
+    },
+    {
+      time: '"2024-02-29T13:49:57.335Z"',
+      name: 'Query',
+    },
+    {
+      time: '"2024-02-29T13:46:30.063Z"',
+      name: 'Query',
+    },
+    {
+      time: '"2024-02-29T13:43:06.865Z"',
+      name: 'Query',
+    },
+    {
+      time: '2024-02-29T13:42:11.313Z',
+      value: '/content/danaher/ls/us/en/connect/newsletter',
+      name: 'PageView',
+    },
+    {
+      time: '"2024-02-29T13:41:59.967Z"',
+      name: 'Query',
+    },
+  ],
+  clientId: '87f2e820-f08c-48c8-bf0a-de04825619f9',
+  clientTimestamp: '2024-03-04T16:51:01.720Z',
+  originContext: 'Search',
+  count: 8,
+  referrer: '',
+};
+
+async function makeCoveoApiRequest() {
+  const accessToken = 'xx36c41356-a0e5-4071-bcae-d27539d778e2';
+  const resp = await fetch('https://danahernonproduction1892f3fhz.org.coveo.com/rest/search/v2/querySuggest', {
+    method: 'POST',
+    headers: {
+      authorization: `Bearer ${accessToken}`,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+  const jsonData = await resp.json();
+  return jsonData;
+}
+
+export function debounce(func, timeout = 300) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => { func.apply(this, args); }, timeout);
+  };
+}
+
 /**
  * Load LCP block and/or wait for LCP in default content.
  * @param {Array} lcpBlocks Array of blocks
@@ -897,133 +1025,3 @@ export {
   getFormMeetingConfig,
   makeCoveoApiRequest,
 };
-
-const payload = {
-  "analytics": {
-      "clientId": "87f2e820-f08c-48c8-bf0a-de04825619f9",
-      "clientTimestamp": "2024-03-04T16:51:01.720Z",
-      "documentLocation": "https://www.aldevron.com/",
-      "documentReferrer": "",
-      "originContext": "Search"
-  },
-  "locale": "en",
-  "pipeline": "Aldevron Marketplace",
-  "q": "",
-  "searchHub": "AldevronMainSearch",
-  "timezone": "America/New_York",
-  "visitorId": "87f2e820-f08c-48c8-bf0a-de04825619f9",
-  "actionsHistory": [
-      {
-          "time": "\"2024-03-04T15:48:09.863Z\"",
-          "name": "Query"
-      },
-      {
-          "time": "\"2024-03-04T15:45:25.428Z\"",
-          "name": "Query"
-      },
-      {
-          "time": "\"2024-03-04T15:42:36.513Z\"",
-          "name": "Query"
-      },
-      {
-          "time": "\"2024-03-04T15:41:15.301Z\"",
-          "name": "Query"
-      },
-      {
-          "time": "\"2024-03-04T15:35:14.401Z\"",
-          "name": "Query"
-      },
-      {
-          "time": "\"2024-03-04T15:34:12.218Z\"",
-          "name": "Query"
-      },
-      {
-          "time": "\"2024-03-04T15:30:34.952Z\"",
-          "name": "Query"
-      },
-      {
-          "time": "\"2024-03-04T15:27:39.498Z\"",
-          "name": "Query"
-      },
-      {
-          "time": "\"2024-03-04T15:20:15.581Z\"",
-          "name": "Query"
-      },
-      {
-          "time": "\"2024-03-04T15:19:11.732Z\"",
-          "name": "Query"
-      },
-      {
-          "time": "\"2024-02-29T15:42:32.198Z\"",
-          "name": "Query"
-      },
-      {
-          "time": "2024-02-29T15:42:31.474Z",
-          "value": "/content/danaher/ls/us/en/search",
-          "name": "PageView"
-      },
-      {
-          "time": "\"2024-02-29T15:42:06.107Z\"",
-          "name": "Query"
-      },
-      {
-          "time": "2024-02-29T15:42:05.285Z",
-          "value": "/content/danaher/ls/us/en/search",
-          "name": "PageView"
-      },
-      {
-          "time": "\"2024-02-29T14:49:36.583Z\"",
-          "name": "Query"
-      },
-      {
-          "time": "\"2024-02-29T13:49:57.335Z\"",
-          "name": "Query"
-      },
-      {
-          "time": "\"2024-02-29T13:46:30.063Z\"",
-          "name": "Query"
-      },
-      {
-          "time": "\"2024-02-29T13:43:06.865Z\"",
-          "name": "Query"
-      },
-      {
-          "time": "2024-02-29T13:42:11.313Z",
-          "value": "/content/danaher/ls/us/en/connect/newsletter",
-          "name": "PageView"
-      },
-      {
-          "time": "\"2024-02-29T13:41:59.967Z\"",
-          "name": "Query"
-      }
-  ],
-  "clientId": "87f2e820-f08c-48c8-bf0a-de04825619f9",
-  "clientTimestamp": "2024-03-04T16:51:01.720Z",
-  "originContext": "Search",
-  "count": 8,
-  "referrer": ""
-};
-
-async function makeCoveoApiRequest() {
-  const accessToken = 'xx36c41356-a0e5-4071-bcae-d27539d778e2';
-  const resp = await fetch(`https://danahernonproduction1892f3fhz.org.coveo.com/rest/search/v2/querySuggest`, {
-    method: 'POST',
-    headers: {
-      authorization: `Bearer ${accessToken}`,
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify(payload),
-  });
-  const jsonData = await resp.json();
-  console.log("JSON DATA from makeCoveoApiRequest", jsonData);
-  return jsonData;
-}
-
-
-export function debounce(func, timeout = 300) {
-  let timer;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => { func.apply(this, args); }, timeout);
-  };
-}

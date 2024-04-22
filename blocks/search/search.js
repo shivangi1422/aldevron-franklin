@@ -283,37 +283,30 @@ const searchBody = `
 `;
 
 export default async function decorate(block) {
-  console.log("Search Block executed!")
-  console.log(block);
- loadCSS('https://static.cloud.coveo.com/atomic/v2/themes/coveo.css');  
+  loadCSS('https://static.cloud.coveo.com/atomic/v2/themes/coveo.css');
 
- (async () => {
-   
-   await import('https://static.cloud.coveo.com/atomic/v2/atomic.esm.js');
-   await customElements.whenDefined('atomic-search-interface');
-   
-   const searchInterface = document.querySelector(
-    
-     'atomic-search-interface'
-     
-   );
-   
-   console.log("search interface ", searchInterface);
+  (async () => {
+    await import('https://static.cloud.coveo.com/atomic/v2/atomic.esm.js');
+    await customElements.whenDefined('atomic-search-interface');
 
-   // Initialization
-   await searchInterface.initialize({
-     accessToken: 'xx36c41356-a0e5-4071-bcae-d27539d778e2',
-     organizationId: 'danahernonproduction1892f3fhz',
-     organizationEndpoints: await searchInterface.getOrganizationEndpoints(
-       'danahernonproduction1892f3fhz'
-     ),
-   });
+    const searchInterface = document.querySelector(
 
-   // Trigger a first search 
-   searchInterface.executeFirstSearch();
-   
- })();
+      'atomic-search-interface',
+
+    );
+
+    // Initialization
+    await searchInterface.initialize({
+      accessToken: 'xx36c41356-a0e5-4071-bcae-d27539d778e2',
+      organizationId: 'danahernonproduction1892f3fhz',
+      organizationEndpoints: await searchInterface.getOrganizationEndpoints(
+        'danahernonproduction1892f3fhz',
+      ),
+    });
+
+    // Trigger a first search
+    searchInterface.executeFirstSearch();
+  })();
 
   block.innerHTML = searchBody;
-  
 }
