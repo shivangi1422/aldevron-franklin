@@ -3,8 +3,6 @@
     padding: 5px;
     float: right;
     margin: -7px 0 0 15px;
-    border: 1px solid #fff;
-    border-radius: 3px
 }
 
 #custom-search.active {
@@ -324,4 +322,133 @@ body.mmg-search-active {
     #custom-search input {
         width: 166px
     }
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+ 
+.coveo-search-dropdown {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+    max-width: 12rem;
+    margin-bottom: 11rem;
+    position: relative;
+}
+ 
+.coveo-search-dropdown:focus-within {
+  max-width: 16rem;
+}
+ 
+.coveo-search-dropdown > div#coveo-searchbox {
+  position: relative;
+  width: 100%;
+}
+ 
+.coveo-search-dropdown > div#coveo-searchbox input#coveo-search {
+    --tw-text-opacity: 1;
+    color: rgb(17 24 39 / var(--tw-text-opacity));
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+    --tw-bg-opacity: 1;
+    background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+    --tw-border-opacity: 1;
+    border-color: rgb(209 213 219 / var(--tw-border-opacity));
+    border-width: 1px;
+    border-radius: 0.25rem;
+    width: 12rem;
+    display: block;
+}
+ 
+.coveo-search-dropdown > div#coveo-searchbox input#coveo-search:focus {
+    width: 16rem;
+    --tw-ring-opacity: 1;
+    --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity));
+    --tw-border-opacity: 1;
+    border-color: rgb(59 130 246 / var(--tw-border-opacity));
+}
+ 
+.coveo-search-dropdown > div#coveo-searchbox input#coveo-search + div {
+  padding-inline-end: 0.75rem;
+    align-items: center;
+    display: flex;
+    inset-inline-end: 0px;
+    top: 0px;
+    bottom: 0px;
+    position: absolute;
+    cursor: pointer;
+}
+ 
+.coveo-search-dropdown > div#coveo-searchbox input#coveo-search + div svg {
+  width: 1rem;
+  height: 1rem;
+  fill: none;
+}
+ 
+.coveo-search-dropdown > div#coveo-search-dropdown-menu {
+  position: relative;
+  width: 100%;
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  border-radius: 0.5rem;
+  z-index: 10;
+}
+ 
+.coveo-search-dropdown > div#coveo-search-dropdown-menu:not(.show) {
+  display: none;
+}
+ 
+.coveo-search-dropdown > div#coveo-search-dropdown-menu.show {
+  display: block;
+}
+ 
+.coveo-search-dropdown > div#coveo-search-dropdown-menu ul {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: rgb(55 65 81);
+}
+ 
+.coveo-search-dropdown > div#coveo-search-dropdown-menu ul li {
+  display: block;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  cursor: pointer;
+}
+ 
+.coveo-search-dropdown > div#coveo-search-dropdown-menu ul li:hover {
+  background-color: rgb(243 244 246);
+}
+
+.recent-searches{
+    font-weight: 700;
+    padding: 10px;
+}
+
+.all-recent-searches{
+    justify-content: space-between;
+    display: flex;
+}
+
+.clear-recent-searches{
+    padding: 10px;
 }
