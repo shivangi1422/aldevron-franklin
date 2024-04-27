@@ -1,0 +1,52 @@
+.breadcrumbs {
+    grid-area: bread;
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+    margin-bottom: 50px;
+}
+
+.breadcrumbs ul {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.breadcrumbs li {
+    display: inline-block;
+    padding: 10px 5px;
+    text-transform: uppercase;
+}
+
+.breadcrumbs li a {
+    color: #202020;
+    text-decoration: none;
+}
+
+.breadcrumbs li:first-child {
+    padding-left: 0;
+}
+
+.breadcrumbs li:last-child {
+    font-weight: 600;
+}
+
+.breadcrumbs li::before {
+    font-family: arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    font-size: 14px;
+    padding-right: 5px;
+}
+
+.breadcrumbs li:first-child::before {
+    content: none;
+}
+
+.breadcrumbs li:not(:last-child)::after {
+    content: ">\00a0";
+    padding: 0 2px 0 7px;
+}
